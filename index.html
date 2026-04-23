@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sacred Manifestations — Artisan Wood Calligraphy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;500;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --walnut: #3b2314;
+    --walnut-mid: #5a3520;
+    --walnut-light: #8b5e3c;
+    --cream: #f5ede0;
+    --gold: #c9a84c;
+    --gold-light: #e8cc88;
+    --gold-pale: #f2e4b8;
+    --teal: #00b4b4;
+    --white: #faf7f2;
+    --text-dark: #1a0f08;
+    --text-mid: #4a3020;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--text-dark);
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(59,35,20,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+  }
+
+  .nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.18em;
+    color: var(--gold-light);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    transition: opacity 0.2s, color 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 1; color: var(--gold-light); }
+
+  /* ─── HERO ─────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    background: var(--walnut);
+    display: flex; flex-direction: column;
+    justify-content: center;
+    padding: 7rem 5rem 5rem 5rem;
+    position: relative;
+  }
+
+  .hero-left::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.3s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--cream);
+    margin-bottom: 1.8rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.5s forwards;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-sub {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: rgba(245,237,224,0.7);
+    max-width: 400px;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.7s forwards;
+  }
+
+  .hero-ctas {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.9s forwards;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.85rem 2.2rem;
+    background: var(--gold);
+    color: var(--walnut);
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.25s, transform 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-ghost {
+    display: inline-block;
+    padding: 0.85rem 2.2rem;
+    border: 1px solid rgba(201,168,76,0.5);
+    color: var(--gold-light);
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.25s, color 0.25s, transform 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: var(--gold-light); color: var(--cream); transform: translateY(-2px); }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-img-wrap {
+    position: absolute; inset: 0;
+    opacity: 0;
+    animation: fadeIn 1.2s 0.4s forwards;
+  }
+
+  .hero-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.05);
+    animation: subtleZoom 8s ease-in-out infinite alternate;
+  }
+
+  .hero-img-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, var(--walnut) 0%, transparent 30%),
+                linear-gradient(to top, rgba(59,35,20,0.4) 0%, transparent 50%);
+  }
+
+  /* ─── DIVIDER ─────────────────────────────────── */
+  .divider {
+    display: flex; align-items: center; gap: 1.5rem;
+    padding: 0 3rem;
+    margin: 1rem 0;
+  }
+
+  .divider-line { flex: 1; height: 1px; background: rgba(201,168,76,0.3); }
+
+  .divider-icon {
+    width: 28px; height: 28px;
+    opacity: 0.6;
+  }
+
+  /* ─── MARQUEE ─────────────────────────────────── */
+  .marquee-strip {
+    background: var(--walnut);
+    padding: 1rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 1px solid rgba(201,168,76,0.25);
+    border-bottom: 1px solid rgba(201,168,76,0.25);
+  }
+
+  .marquee-inner {
+    display: inline-flex;
+    animation: marquee 25s linear infinite;
+  }
+
+  .marquee-item {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    padding: 0 3rem;
+  }
+
+  .marquee-dot { color: rgba(201,168,76,0.5); }
+
+  /* ─── SECTION GENERIC ─────────────────────────── */
+  section { padding: 6rem 3rem; }
+
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--walnut);
+    margin-bottom: 1.2rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--walnut-light); }
+
+  .section-desc {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--text-mid);
+    max-width: 520px;
+  }
+
+  /* ─── ABOUT ─────────────────────────────────────── */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    background: var(--white);
+  }
+
+  .about-images {
+    position: relative;
+    height: 540px;
+  }
+
+  .about-img-main {
+    position: absolute;
+    top: 0; left: 0;
+    width: 75%;
+    height: 85%;
+    object-fit: cover;
+    box-shadow: 12px 12px 0 var(--gold-pale);
+  }
+
+  .about-img-secondary {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 55%;
+    height: 55%;
+    object-fit: cover;
+    border: 4px solid var(--white);
+    box-shadow: 0 8px 30px rgba(59,35,20,0.2);
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .stat {
+    border-left: 2px solid var(--gold);
+    padding-left: 1rem;
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--walnut);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--walnut-light);
+    letter-spacing: 0.08em;
+    margin-top: 0.25rem;
+  }
+
+  /* ─── COLLECTION ─────────────────────────────── */
+  .collection {
+    background: var(--cream);
+    padding: 6rem 3rem;
+  }
+
+  .collection-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3.5rem;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .product-card {
+    background: var(--white);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(59,35,20,0.15); }
+
+  .product-card:first-child {
+    grid-column: span 2;
+  }
+
+  .card-img {
+    width: 100%;
+    aspect-ratio: 1 / 0.75;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s;
+  }
+
+  .product-card:first-child .card-img { aspect-ratio: 2 / 1; }
+
+  .product-card:hover .card-img { transform: scale(1.04); }
+
+  .card-badge {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background: var(--gold);
+    color: var(--walnut);
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    padding: 0.3rem 0.7rem;
+    text-transform: uppercase;
+  }
+
+  .card-body {
+    padding: 1.4rem 1.6rem 1.8rem;
+    border-top: 2px solid var(--gold-pale);
+  }
+
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--walnut);
+    margin-bottom: 0.4rem;
+  }
+
+  .card-desc {
+    font-size: 0.82rem;
+    color: var(--walnut-light);
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: var(--walnut);
+  }
+
+  .card-cta {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 1px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .card-cta:hover { color: var(--walnut); border-color: var(--walnut); }
+
+  /* ─── PROCESS ─────────────────────────────────── */
+  .process { background: var(--walnut); padding: 6rem 3rem; }
+
+  .process .section-title { color: var(--cream); }
+  .process .section-desc { color: rgba(245,237,224,0.65); }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 4rem;
+    position: relative;
+  }
+
+  .steps::before {
+    content: '';
+    position: absolute;
+    top: 2.2rem; left: 12%;
+    width: 76%; height: 1px;
+    background: rgba(201,168,76,0.3);
+  }
+
+  .step { padding: 0 1.5rem; text-align: center; }
+
+  .step-num {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    color: var(--gold);
+    margin: 0 auto 1.8rem;
+    background: var(--walnut);
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--cream);
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+  }
+
+  .step-desc {
+    font-size: 0.82rem;
+    color: rgba(245,237,224,0.55);
+    line-height: 1.7;
+  }
+
+  /* ─── CUSTOM ORDER ─────────────────────────────── */
+  .custom { background: var(--white); }
+
+  .custom-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .custom-img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    box-shadow: -10px 10px 0 var(--gold-pale);
+  }
+
+  .form-group { margin-bottom: 1.5rem; }
+
+  label {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--walnut-light);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(59,35,20,0.2);
+    background: var(--white);
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--gold);
+  }
+
+  textarea { height: 130px; resize: vertical; }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-note {
+    font-size: 0.8rem;
+    color: var(--walnut-light);
+    margin-top: 0.8rem;
+    line-height: 1.6;
+  }
+
+  /* ─── ORDER MODAL ─────────────────────────────── */
+  .modal-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(20,10,5,0.8);
+    backdrop-filter: blur(6px);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: var(--white);
+    width: min(92vw, 560px);
+    max-height: 92vh;
+    overflow-y: auto;
+    padding: 3rem;
+    position: relative;
+    animation: fadeUp 0.35s ease;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1.2rem; right: 1.5rem;
+    background: none; border: none;
+    font-size: 1.4rem;
+    color: var(--walnut-light);
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .modal-product-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    color: var(--walnut);
+    margin-bottom: 0.4rem;
+  }
+
+  .modal-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    margin-bottom: 2rem;
+  }
+
+  /* ─── TESTIMONIALS ─────────────────────────────── */
+  .testimonials { background: var(--cream); padding: 5rem 3rem; }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .testimonial {
+    background: var(--white);
+    padding: 2rem;
+    border-top: 3px solid var(--gold);
+  }
+
+  .testimonial-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonial-author {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--walnut-light);
+    text-transform: uppercase;
+  }
+
+  /* ─── FOOTER ─────────────────────────────────── */
+  footer {
+    background: var(--text-dark);
+    padding: 4rem 3rem 2rem;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    margin-bottom: 2rem;
+  }
+
+  .footer-brand {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.18em;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.85rem;
+    color: rgba(245,237,224,0.5);
+    line-height: 1.7;
+    max-width: 280px;
+  }
+
+  .footer-col-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+
+  .footer-links { list-style: none; }
+
+  .footer-links li { margin-bottom: 0.7rem; }
+
+  .footer-links a {
+    text-decoration: none;
+    color: rgba(245,237,224,0.55);
+    font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold-light); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: rgba(245,237,224,0.3);
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── NOTIFICATION ─────────────────────────────── */
+  .notification {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    background: var(--walnut);
+    color: var(--gold-light);
+    padding: 1rem 1.5rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    border-left: 3px solid var(--gold);
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 300;
+    max-width: 340px;
+  }
+
+  .notification.show { transform: translateY(0); opacity: 1; }
+
+  /* ─── ANIMATIONS ─────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes subtleZoom {
+    from { transform: scale(1.05); }
+    to { transform: scale(1.12); }
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─────────────────────────────── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 8rem 2rem 4rem; min-height: 60vh; }
+    .hero-right { display: none; }
+    .about { grid-template-columns: 1fr; gap: 3rem; }
+    .about-images { height: 300px; }
+    .products-grid { grid-template-columns: 1fr 1fr; }
+    .product-card:first-child { grid-column: span 2; }
+    .steps { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    .steps::before { display: none; }
+    .custom-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .custom-img { display: none; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    section { padding: 4rem 1.5rem; }
+  }
+
+  @media (max-width: 600px) {
+    .products-grid { grid-template-columns: 1fr; }
+    .product-card:first-child { grid-column: span 1; }
+    .steps { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .collection-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Sacred Manifestations</a>
+  <ul class="nav-links">
+    <li><a href="#collection">Collection</a></li>
+    <li><a href="#about">Our Craft</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#custom">Custom Order</a></li>
+    <li><a href="#custom"><span style="color:var(--gold)">Order Now</span></a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Artisan Wood Calligraphy</p>
+    <h1 class="hero-title">Where Sacred<br><em>Words</em> Meet<br>Timeless Wood</h1>
+    <p class="hero-sub">Each piece is hand-carved into fine walnut, transforming Quranic verses and sacred phrases into enduring works of art for your home.</p>
+    <div class="hero-ctas">
+      <a href="#collection" class="btn-primary">Browse Collection</a>
+      <a href="#custom" class="btn-ghost">Request Custom</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <img src="/mnt/user-data/uploads/ad71ae47-9ccf-4d42-8b2b-e49fb21e8e35_Original.jpg" alt="Sacred Manifestations wood carving">
+      <div class="hero-img-overlay"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span class="marquee-item">Handcrafted <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Sacred Calligraphy <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Walnut &amp; Oak <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Custom Orders Welcome <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Ships Across Canada <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Gifting Made Sacred <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Handcrafted <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Sacred Calligraphy <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Walnut &amp; Oak <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Custom Orders Welcome <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Ships Across Canada <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Gifting Made Sacred <span class="marquee-dot">✦</span></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-images reveal">
+    <img class="about-img-main" src="/mnt/user-data/uploads/IMG_6103_Original.jpeg" alt="Ayat al-Kursi carved wood">
+    <img class="about-img-secondary" src="/mnt/user-data/uploads/IMG_5497_Original.jpeg" alt="Surah wood carving">
+  </div>
+  <div class="about-content reveal">
+    <p class="section-label">Our Craft</p>
+    <h2 class="section-title">Carved with<br><em>Intention</em></h2>
+    <p class="section-desc">
+      At Sacred Manifestations, every piece begins with a verse — chosen for its depth, its beauty, its meaning. We carve directly into premium walnut and oak, letting the grain of the wood become part of the story. The result is a piece that speaks twice: once in the sacred word, and once in the warmth of natural wood.
+    </p>
+    <p class="section-desc" style="margin-top:1rem;">
+      Whether you're looking for a wedding gift, a housewarming piece, or art that anchors your space in faith — we craft it with care and precision.
+    </p>
+    <div class="about-stats">
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Handcrafted</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Bespoke</div>
+        <div class="stat-label">Custom designs available</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Walnut</div>
+        <div class="stat-label">Premium hardwoods used</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Gifted</div>
+        <div class="stat-label">Beautifully packaged</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTION -->
+<section class="collection" id="collection">
+  <div class="collection-header">
+    <div>
+      <p class="section-label">The Collection</p>
+      <h2 class="section-title">Ready-Made <em>Pieces</em></h2>
+    </div>
+    <a href="#custom" class="btn-primary">Request Custom</a>
+  </div>
+
+  <div class="products-grid">
+
+    <!-- Card 1 - featured -->
+    <div class="product-card reveal" onclick="openModal('Rabbana Hablana — Surah Al-Furqan', '$180 – $280')">
+      <div style="overflow:hidden">
+        <img class="card-img" src="/mnt/user-data/uploads/ad71ae47-9ccf-4d42-8b2b-e49fb21e8e35_Original.jpg" alt="Rabbana Hablana carving">
+      </div>
+      <div class="card-badge">Bestseller</div>
+      <div class="card-body">
+        <div class="card-title">Rabbana Hablana — Surah Al-Furqan</div>
+        <div class="card-desc">"Our Lord! Give us joy and comfort in our spouses and offspring, and make us imams of the Godwary." Carved in thuluth script on dark walnut with gold corner detail.</div>
+        <div class="card-footer">
+          <div class="card-price">$180 – $280</div>
+          <a href="#" class="card-cta">Order This</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="product-card reveal" onclick="openModal('Shahada — La ilaha illallah', '$160 – $240')">
+      <div style="overflow:hidden">
+        <img class="card-img" src="/mnt/user-data/uploads/RenderedImage.jpeg" alt="Shahada carving">
+      </div>
+      <div class="card-body">
+        <div class="card-title">Shahada — Mountain Composition</div>
+        <div class="card-desc">La ilaha illallah Muhammadur Rasulullah, composed in a dramatic rising mountain form. Available on dark walnut or burl oak.</div>
+        <div class="card-footer">
+          <div class="card-price">$160 – $240</div>
+          <a href="#" class="card-cta">Order This</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="product-card reveal" onclick="openModal('Surah Ar-Rahman — Fa-biayyi', '$140 – $200')">
+      <div style="overflow:hidden">
+        <img class="card-img" src="/mnt/user-data/uploads/IMG_5497_Original.jpeg" alt="Fa-biayyi carving">
+      </div>
+      <div class="card-badge" style="background:var(--teal); color:#fff">New</div>
+      <div class="card-body">
+        <div class="card-title">Surah Ar-Rahman — Fa-biayyi</div>
+        <div class="card-desc">"Then which of the favours of your Lord will you deny?" Vibrant teal inlay on natural walnut with braided border. A bold statement piece.</div>
+        <div class="card-footer">
+          <div class="card-price">$140 – $200</div>
+          <a href="#" class="card-cta">Order This</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="product-card reveal" onclick="openModal('Ayat al-Kursi — Radial Composition', '$220 – $350')">
+      <div style="overflow:hidden">
+        <img class="card-img" src="/mnt/user-data/uploads/IMG_6103_Original.jpeg" alt="Ayat al-Kursi carving">
+      </div>
+      <div class="card-body">
+        <div class="card-title">Ayat al-Kursi — Radial Composition</div>
+        <div class="card-desc">The Throne Verse radiating outward from Allahu Akbar at center. Intricate thuluth script on premium dark walnut. A true heirloom piece.</div>
+        <div class="card-footer">
+          <div class="card-price">$220 – $350</div>
+          <a href="#" class="card-cta">Order This</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="product-card reveal" onclick="openModal('Shahada — Large Burl Oak', '$190 – $280')">
+      <div style="overflow:hidden">
+        <img class="card-img" src="/mnt/user-data/uploads/IMG_3555.jpeg" alt="Shahada burl oak">
+      </div>
+      <div class="card-body">
+        <div class="card-title">Shahada — Large Burl Oak</div>
+        <div class="card-desc">The declaration of faith carved large-scale into dramatic swirling burl oak. The wood grain becomes an extension of the art itself.</div>
+        <div class="card-footer">
+          <div class="card-price">$190 – $280</div>
+          <a href="#" class="card-cta">Order This</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="reveal">
+    <p class="section-label">How It Works</p>
+    <h2 class="section-title">From Vision to<br><em>Your Walls</em></h2>
+  </div>
+  <div class="steps">
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <div class="step-title">You Choose</div>
+      <div class="step-desc">Select a ready-made piece or share your custom verse, size, and wood preference with us.</div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">02</div>
+      <div class="step-title">We Design</div>
+      <div class="step-desc">We compose the calligraphy layout and send you a digital preview before any carving begins.</div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">03</div>
+      <div class="step-title">We Carve</div>
+      <div class="step-desc">Once approved, we hand-carve your piece on premium hardwood. Each piece takes 1–3 weeks.</div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">04</div>
+      <div class="step-title">Delivered</div>
+      <div class="step-desc">Your piece is carefully packaged and shipped to your door, ready to display.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOM ORDER -->
+<section class="custom" id="custom">
+  <div class="custom-inner">
+    <div class="reveal">
+      <img class="custom-img" src="/mnt/user-data/uploads/IMG_6103_Original.jpeg" alt="Custom carving example">
+    </div>
+    <div class="reveal">
+      <p class="section-label">Bespoke Pieces</p>
+      <h2 class="section-title">Create Your<br><em>Custom</em> Carving</h2>
+      <p class="section-desc" style="margin-bottom:2.5rem">Have a verse, dua, or phrase in mind? We'll bring it to life on wood. Tell us what you're envisioning and we'll get back to you within 24 hours with a quote.</p>
+
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" id="cf-name" placeholder="Ahmad Al-Hassan">
+      </div>
+
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="cf-email" placeholder="you@example.com">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Wood Type</label>
+          <select id="cf-wood">
+            <option value="">Select wood</option>
+            <option>Dark Walnut</option>
+            <option>Light Walnut</option>
+            <option>Burl Oak</option>
+            <option>Natural Oak</option>
+            <option>Not sure — advise me</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Size</label>
+          <select id="cf-size">
+            <option value="">Select size</option>
+            <option>Small (up to 12")</option>
+            <option>Medium (12–24")</option>
+            <option>Large (24–36")</option>
+            <option>Extra Large (36"+)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Verse or Text</label>
+        <input type="text" id="cf-verse" placeholder="e.g. Surah Al-Fatiha, or a specific dua…">
+      </div>
+
+      <div class="form-group">
+        <label>Additional Details</label>
+        <textarea id="cf-details" placeholder="Color preferences, occasion (e.g. wedding gift), mounting style, deadline, etc."></textarea>
+      </div>
+
+      <button class="btn-primary" onclick="submitCustom()" style="border:none;cursor:pointer;font-size:0.72rem">Send Inquiry</button>
+      <p class="form-note">We respond within 24 hours. No commitment required — inquiries are free.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="reveal" style="text-align:center; max-width:500px; margin:0 auto;">
+    <p class="section-label" style="text-align:center">Kind Words</p>
+    <h2 class="section-title" style="text-align:center">What Our<br><em>Customers</em> Say</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial reveal">
+      <div class="testimonial-text">"We ordered the Ayat al-Kursi piece as a housewarming gift. The family was moved to tears. The quality is extraordinary — it looks like it belongs in a gallery."</div>
+      <div class="testimonial-author">— Fatima K., Toronto</div>
+    </div>
+    <div class="testimonial reveal">
+      <div class="testimonial-text">"I asked for a custom Surah Yasin piece on a tight timeline. Not only did they deliver on time, the digital preview was exactly what I'd imagined. Truly gifted craftsmen."</div>
+      <div class="testimonial-author">— Yusuf M., Mississauga</div>
+    </div>
+    <div class="testimonial reveal">
+      <div class="testimonial-text">"The Shahada piece now hangs in our living room and is the first thing every guest mentions. Worth every penny. We've already ordered two more as wedding gifts."</div>
+      <div class="testimonial-author">— Amina R., Ottawa</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">Sacred Manifestations</div>
+      <div class="footer-tagline">Bringing sacred words to life through the art of wood carving. Each piece is made with devotion, precision, and love.</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="#collection">Collection</a></li>
+        <li><a href="#about">Our Craft</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#custom">Custom Order</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:hello@sacredmanifestations.com">hello@sacredmanifestations.com</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">WhatsApp</a></li>
+        <li><a href="#">Etsy Shop</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Sacred Manifestations. All rights reserved.</span>
+    <span>Handcrafted with care ✦ Canada</span>
+  </div>
+</footer>
+
+<!-- ORDER MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <p class="section-label">Place Order</p>
+    <h3 class="modal-product-title" id="modal-title">—</h3>
+    <div class="modal-price" id="modal-price">—</div>
+
+    <div class="form-group">
+      <label>Your Name</label>
+      <input type="text" id="mo-name" placeholder="Ahmad Al-Hassan">
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" id="mo-email" placeholder="you@example.com">
+    </div>
+    <div class="form-group">
+      <label>Phone (optional)</label>
+      <input type="tel" id="mo-phone" placeholder="+1 (647) 555-0123">
+    </div>
+    <div class="form-group">
+      <label>Size Preference</label>
+      <select id="mo-size">
+        <option value="">Select size</option>
+        <option>Small (up to 12")</option>
+        <option>Medium (12–24")</option>
+        <option>Large (24–36")</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Any Notes</label>
+      <textarea id="mo-notes" style="height:90px" placeholder="Occasion, colour preference, delivery details…"></textarea>
+    </div>
+    <button class="btn-primary" onclick="submitOrder()" style="border:none;cursor:pointer;width:100%;font-size:0.72rem">Submit Order Inquiry</button>
+    <p class="form-note" style="margin-top:0.8rem">We'll confirm details &amp; pricing within 24 hours before any payment is taken.</p>
+  </div>
+</div>
+
+<!-- NOTIFICATION -->
+<div class="notification" id="notification"></div>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Modal
+  function openModal(title, price) {
+    document.getElementById('modal-title').textContent = title;
+    document.getElementById('modal-price').textContent = price;
+    document.getElementById('modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOutside(e) {
+    if (e.target === document.getElementById('modal')) closeModal();
+  }
+
+  // Notification
+  function showNotif(msg) {
+    const n = document.getElementById('notification');
+    n.textContent = msg;
+    n.classList.add('show');
+    setTimeout(() => n.classList.remove('show'), 4000);
+  }
+
+  // Order submit
+  function submitOrder() {
+    const name = document.getElementById('mo-name').value.trim();
+    const email = document.getElementById('mo-email').value.trim();
+    if (!name || !email) { showNotif('Please fill in your name and email.'); return; }
+    closeModal();
+    showNotif('✦ Thank you, ' + name.split(' ')[0] + '! We\'ll be in touch within 24 hours.');
+  }
+
+  // Custom form submit
+  function submitCustom() {
+    const name = document.getElementById('cf-name').value.trim();
+    const email = document.getElementById('cf-email').value.trim();
+    const verse = document.getElementById('cf-verse').value.trim();
+    if (!name || !email) { showNotif('Please fill in your name and email.'); return; }
+    showNotif('✦ Inquiry received, ' + name.split(' ')[0] + '! We\'ll reply within 24 hours.');
+    ['cf-name','cf-email','cf-wood','cf-size','cf-verse','cf-details'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.value = '';
+    });
+  }
+
+  // Card CTAs open modal
+  document.querySelectorAll('.card-cta').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const card = a.closest('.product-card');
+      card.click();
+    });
+  });
+</script>
+
+</body>
+</html>
